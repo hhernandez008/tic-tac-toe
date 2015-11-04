@@ -5,19 +5,11 @@ var xTurn = false;
 var gameSquares = [];
 
 
-$(document).ready(function(){
-    $(".modal").on("click", function(){
-
+$(document).ready(function () {
+    $(".center").on("click", ".target", function () {
+        whoseTurn(this);
     });
 
-
-    $(".center").on("click",".row>div",function(){
-
-        var self = this;
-        var squareName = $(self);
-        console.log(squareName);
-        whoseTurn(self, squareName);
-    });
 
     //turn off click handler if box filled
 
@@ -33,7 +25,7 @@ $(document).ready(function(){
             var mainChild_div = $("<div>", {
                 class: "target"
             });
-            var $animationContainer = $("<div>")
+            var $animationContainer = $("<div>");
             var $animationContainer2 = $("<div>");
             $(mainChild_div).append($animationContainer).append($animationContainer2);
             $(mainChild_row).append(mainChild_div);
@@ -42,28 +34,25 @@ $(document).ready(function(){
         }
         $(".center").append(mainChild_row);
     }
-console.log(gameSquares.length);
+    console.log(gameSquares.length);
 // targets all class target elements and adds class col-xs-2 if gameSquares.length is equal to 3
     if (gameSquares.length = 3) {
         $(".target").addClass('col-xs-2');
     }
 });//end ready function
-
-$("mainChild_div").on("click", function(){
-
-})
-
-function reset(){
-
+function click(targetElement) {
+    whoseTurn(targetElement);
+}
+function reset() {
 }
 
-function whoseTurn(self){
+function whoseTurn(self) {
 
     if (xTurn) {
-        $(self).addClass("playerX");
+        $(self).text("playerX");
         xTurn = false;
     } else {
-        $(self).addClass("playerO");
+        $(self).text("playerO");
         xTurn = true;
     }
 } //end whoseTurn
