@@ -27,11 +27,11 @@ $(document).ready(function(){
     for (i = 0; i <= easy; i++) {
         gameSquares[i] = [];
         var mainChild_row = $("<div>", {
-            class: ""
+            class: "row"
         });
         for (j = 0; j <= easy; j++) {
             var mainChild_div = $("<div>", {
-                class: ""
+                class: "col-xs-2"
             });
             var $animationContainer = $("<div>").append("<div>");
             $(mainChild_div).append($animationContainer);
