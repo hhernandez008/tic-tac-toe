@@ -138,10 +138,13 @@ body {
 
 #perspective {
     /*container for gun image*/
-    height: 300px;
+    height: 15%;
+    width: 33%;
     -webkit-perspective: 400px;
     border: 1px solid black;
-    position: relative;
+    position: absolute;
+    top: 80%;
+    left: 40%;
 }
 
 #pointer-arrow {
@@ -174,3 +177,8 @@ body {
     border-right: 3px dashed red;
 }
 
+.sign {
+    position: absolute;
+    top: 73%;
+    left: 2%;
+}
