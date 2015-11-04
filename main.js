@@ -5,10 +5,11 @@ var xTurn = false;
 var gameSquares = [];
 
 
-$(document).ready(function(){
-
-    $(".center").on("click", ".target", function(){
-        whoseTurn(this);
+$(document).ready(function () {
+    $(".center").on("click", ".target", function () {
+        var rowIndex = $(this).attr("rowIndex");
+        var squareIndex = $(this).attr("squareIndex");
+        canIClick(this, rowIndex, squareIndex);
     });
 
 // for loop for 3x3 game board
@@ -21,18 +22,19 @@ $(document).ready(function(){
         });
         for (j = 0; j <= easy; j++) {
             var mainChild_div = $("<div>", {
-                class: "target"
+                class: "target",
+                rowIndex: i,
+                squareIndex: j
             });
             var $animationContainer = $("<div>");
             var $animationContainer2 = $("<div>");
             $(mainChild_div).append($animationContainer).append($animationContainer2);
             $(mainChild_row).append(mainChild_div);
-            gameSquares[i][j] = mainChild_div;
-
+            gameSquares[i][j] = '';
         }
         $(".center").append(mainChild_row);
     }
-console.log(gameSquares.length);
+    console.log(gameSquares.length);
 // targets all class target elements and adds class col-xs-2 if gameSquares.length is equal to 3
     if (gameSquares.length = 3) {
         $(".target").addClass('col-xs-2');
@@ -42,15 +44,23 @@ console.log(gameSquares.length);
 
 
 
+function canIClick(element, i, j) {
+    if (gameSquares[i][j] != '') {
+        return;
+    } else {
+        whoseTurn(element,i, j);
+    }
+}
 
-
-function whoseTurn(self){
+function whoseTurn(self,i, j) {
 
     if (xTurn) {
         $(self).text("playerX");
+        gameSquares[i][j]= 'X';
         xTurn = false;
     } else {
         $(self).text("playerO");
+        gameSquares[i][j]= 'O';
         xTurn = true;
     }
 } //end whoseTurn
@@ -58,6 +68,4 @@ function whoseTurn(self){
 //reset the game board
 function reset(){
     $(".target").children().removeClass("playerX playerO");
-
-
 }
