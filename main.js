@@ -18,11 +18,11 @@ $(document).ready(function () {
     var hard = 4;
     for (i = 0; i <= easy; i++) {
         var mainChild_row = $("<div>", {
-            class: ""
+            class: "row"
         });
         for (j = 0; j <= easy; j++) {
             var mainChild_div = $("<div>", {
-                class: ""
+                class: "col-xs-2"
             });
             $(mainChild_row).append(mainChild_div);
 
