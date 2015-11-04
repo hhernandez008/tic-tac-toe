@@ -1,0 +1,77 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    background: url('images/t3-bg3.jpg')no-repeat;
+    background-size: 100% 100%;
+    perspective: 1000px;
+}
+
+.center {
+    position: absolute;
+    top: 46.5%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
+.col-xs-2 {
+    border: 1px solid black;
+    width: 15vw;
+    height: 15vh;
+    margin-top: 1.6em;
+}
+
+
+
+/*  X and animation */
+#container1{
+    border:1px solid black;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10%;
+    position: relative;
+}
+
+#one1{
+    border-right:3px solid green;
+    width: 50%;
+    height: 100%;
+    -webkit-transform: skew(0) scale(0);
+    position: absolute;
+    transition:2s;
+
+}
+#one2{
+    border-right:3px solid green;
+    width: 50%;
+    height: 100%;
+    -webkit-transform: skew(0) scale(0);;
+    transition:2s;
+
+}
+
+#container1:hover>#one2{
+    -webkit-transform: skew(45deg) scale(1);
+}
+#container1:hover>#one1{
+    -webkit-transform: skew(-45deg) scale(1);
+}
+/*  circle and animation */
+#container2{
+    display:block;
+    border:1px solid black;
+    width: 150px;
+    height: 150px;
+
+}
+
+#two{
+    border:3px solid red;
+    height: 95%;
+    border-radius: 50%;
+    transition: 2s;
+    -webkit-transform: scale(0) rotateY(0);
+}
+
+#container2:hover>#two{
+    -webkit-transform: scale(1) rotateY(360deg);
+}
