@@ -22,14 +22,14 @@ $(document).ready(function () {
         });
         for (j = 0; j <= easy; j++) {
             var mainChild_div = $("<div>", {
-                class: "col-xs-2"
+                class: "target"
             });
             $(mainChild_row).append(mainChild_div);
 
         }
         $(".center").append(mainChild_row);
     }
-
+if
 
 });//end ready function
 
