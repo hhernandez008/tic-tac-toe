@@ -36,7 +36,7 @@ $(document).ready(function(){
             var $animationContainer = $("<div>").append("<div>");
             $(mainChild_div).append($animationContainer);
             $(mainChild_row).append(mainChild_div);
-            gameSquares[i][j] = $container;
+            gameSquares[i][j] = mainChild_div;
 
         }
         $(".center").append(mainChild_row);
