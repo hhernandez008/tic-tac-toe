@@ -2,11 +2,19 @@
  * Created by Heather on 11/4/2015.
  */
 var xTurn = false;
+var gameSquares = [];
 
-$(document).ready(function () {
-    $(".center").on("click", ".row>div", function () {
+
+$(document).ready(function(){
+    $(".modal").on("click", function(){
+
+    });
+
+
+    $(".center").on("click",".row>div",function(){
+
         var self = this;
-        var squareName = $(self).attr("square");
+        var squareName = $(self);
         console.log(squareName);
         whoseTurn(self, squareName);
     });
@@ -17,6 +25,7 @@ $(document).ready(function () {
     var easy = 2;
     var hard = 4;
     for (i = 0; i <= easy; i++) {
+        gameSquares[i] = [];
         var mainChild_row = $("<div>", {
             class: "row"
         });
@@ -24,7 +33,10 @@ $(document).ready(function () {
             var mainChild_div = $("<div>", {
                 class: "target"
             });
+            var $animationContainer = $("<div>").append("<div>");
+            $(mainChild_div).append($animationContainer);
             $(mainChild_row).append(mainChild_div);
+            gameSquares[i][j] = mainChild_div;
 
         }
         $(".center").append(mainChild_row);
@@ -33,13 +45,14 @@ if
 
 });//end ready function
 
-function whoseTurn(self, square) {
-    emptySquares(square);
+
+function whoseTurn(self){
+
     if (xTurn) {
-        $(self).text("X");
+        $(self).addClass("playerX");
         xTurn = false;
     } else {
-        $(self).text("O");
+        $(self).addClass("playerO");
         xTurn = true;
     }
 } //end whoseTurn
