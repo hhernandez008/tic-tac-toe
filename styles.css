@@ -1,0 +1,21 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    background: url('images/t3-bg3.jpg')no-repeat;
+    background-size: 100% 100%;
+    perspective: 1000px;
+}
+
+.center {
+    position: absolute;
+    top: 46.5%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
+.col-xs-2 {
+    border: 1px solid black;
+    width: 15vw;
+    height: 15vh;
+    margin-top: 1.6em;
+}
