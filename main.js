@@ -46,13 +46,13 @@ $(document).ready(function(){
 });//end ready function
 
 
-function whoseTurn(self, square){
+function whoseTurn(self){
 
     if (xTurn) {
-        $(self).text("X");
+        $(self).addClass("playerX");
         xTurn = false;
     } else {
-        $(self).text("O");
+        $(self).addClass("playerO");
         xTurn = true;
     }
 } //end whoseTurn
