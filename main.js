@@ -2,32 +2,17 @@
  * Created by Heather on 11/4/2015.
  */
 var xTurn = false;
-var gameLevel = 3;
 var gameSquares = [];
+
 
 $(document).ready(function(){
     $(".modal").on("click", function(){
 
     });
 
-    //create board (3x3 or 5x5)
-    for(var i = 0; i < gameLevel; i++){
-        gameSquares[i] = [];
-        var $row = $("<div>").addClass("row");
-        $(".center").append($row);
-        for(var j = 0; j < gameLevel; j++){
-            var $container = $("<div>").addClass("col-xs-2").attr("id",j);
-            var $animationContainer = $("<div>").append("<div>");
-            $container.append($animationContainer);
-            $($row).append($container);
-            gameSquares[i][j] = $container;
-        }
-    }
-
-
-
 
     $(".center").on("click",".row>div",function(){
+
         var self = this;
         var squareName = $(self);
         console.log(squareName);
@@ -36,11 +21,33 @@ $(document).ready(function(){
 
     //turn off click handler if box filled
 
+// for loop for 3x3 game board
+    var easy = 2;
+    var hard = 4;
+    for (i = 0; i <= easy; i++) {
+        gameSquares[i] = [];
+        var mainChild_row = $("<div>", {
+            class: ""
+        });
+        for (j = 0; j <= easy; j++) {
+            var mainChild_div = $("<div>", {
+                class: ""
+            });
+            var $animationContainer = $("<div>").append("<div>");
+            $(mainChild_div).append($animationContainer);
+            $(mainChild_row).append(mainChild_div);
+            gameSquares[i][j] = $container;
+
+        }
+        $(".center").append(mainChild_row);
+    }
 
 
 });//end ready function
 
+
 function whoseTurn(self, square){
+
     if (xTurn) {
         $(self).text("X");
         xTurn = false;
