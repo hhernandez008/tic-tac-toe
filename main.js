@@ -33,18 +33,29 @@ $(document).ready(function(){
             var mainChild_div = $("<div>", {
                 class: "target"
             });
-            var $animationContainer = $("<div>").append("<div>");
-            $(mainChild_div).append($animationContainer);
+            var $animationContainer = $("<div>")
+            var $animationContainer2 = $("<div>");
+            $(mainChild_div).append($animationContainer).append($animationContainer2);
             $(mainChild_row).append(mainChild_div);
             gameSquares[i][j] = mainChild_div;
 
         }
         $(".center").append(mainChild_row);
     }
-if
-
+console.log(gameSquares.length);
+// targets all class target elements and adds class col-xs-2 if gameSquares.length is equal to 3
+    if (gameSquares.length = 3) {
+        $(".target").addClass('col-xs-2');
+    }
 });//end ready function
 
+$("mainChild_div").on("click", function(){
+
+})
+
+function reset(){
+
+}
 
 function whoseTurn(self){
 
