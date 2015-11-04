@@ -6,24 +6,14 @@ var gameSquares = [];
 
 
 $(document).ready(function(){
-    $(".modal").on("click", function(){
 
+    $(".center").on("click", ".target", function(){
+        whoseTurn(this);
     });
-
-
-    $(".center").on("click",".row>div",function(){
-
-        var self = this;
-        var squareName = $(self);
-        console.log(squareName);
-        whoseTurn(self, squareName);
-    });
-
-    //turn off click handler if box filled
 
 // for loop for 3x3 game board
     var easy = 2;
-    var hard = 4;
+
     for (i = 0; i <= easy; i++) {
         gameSquares[i] = [];
         var mainChild_row = $("<div>", {
@@ -33,7 +23,7 @@ $(document).ready(function(){
             var mainChild_div = $("<div>", {
                 class: "target"
             });
-            var $animationContainer = $("<div>")
+            var $animationContainer = $("<div>");
             var $animationContainer2 = $("<div>");
             $(mainChild_div).append($animationContainer).append($animationContainer2);
             $(mainChild_row).append(mainChild_div);
@@ -47,23 +37,27 @@ console.log(gameSquares.length);
     if (gameSquares.length = 3) {
         $(".target").addClass('col-xs-2');
     }
+
 });//end ready function
 
-$("mainChild_div").on("click", function(){
 
-})
 
-function reset(){
 
-}
 
 function whoseTurn(self){
 
     if (xTurn) {
-        $(self).addClass("playerX");
+        $(self).text("playerX");
         xTurn = false;
     } else {
-        $(self).addClass("playerO");
+        $(self).text("playerO");
         xTurn = true;
     }
 } //end whoseTurn
+
+//reset the game board
+function reset(){
+    $(".target").children().removeClass("playerX playerO");
+
+
+}
