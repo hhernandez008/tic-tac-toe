@@ -76,7 +76,7 @@ function setBoard(gameLevel){
      * targets all class target elements and adds class col-xs-2 if gameSquares.length is equal to 3, appends images/goose-100.png
      * to target. otherwise appends images/goose-60.png to target and adds class col-xs-1
      */
-    if (gameSquares.length = 3) {
+    if (gameSquares.length == 3) {
         var imageEasy = $("<img>", {
             src: 'images/goose-100.png'
         });
