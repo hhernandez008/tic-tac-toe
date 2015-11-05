@@ -24,7 +24,7 @@ body {
 }
 /*had to separate the tops to visually work between gameboard sizes.*/
 .board-two {
-    top: 74%;
+    top: 73.5%;
 }
 /*centering gameboards.*/
 .board-one, .board-two {
@@ -32,6 +32,11 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    transition: 1s;
+}
+
+.row {
+    transition: 1s;
 }
 
 .col-xs-2 {
@@ -166,4 +171,29 @@ body {
     position: absolute;
     top: 73%;
     left: 2%;
+}
+
+.switch {
+    position: absolute;
+    top: 82%;
+    left: 6%;
+    transform: rotateY(50deg);
+    background-color: #C47335;
+    font-size: 2em;
+    border: 1px solid black;
+}
+
+.reset {
+    position: absolute;
+    top: 80%;
+    left: 11%;
+    transform: rotateY(48deg);
+    background-color: #C47335;
+    font-size: 2em;
+    border: 1px solid black;
+}
+/*add this class for resetting the cards, setTimeout to remove class*/
+.reset-row {
+    transform: rotateX(90deg);
+    transform-origin: 50% 100%;
 }
