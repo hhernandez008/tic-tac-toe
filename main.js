@@ -60,7 +60,7 @@ function setBoard(gameLevel){
         var mainChild_row = $("<div>", {
             class: "row"
         });
-        console.log(i + " row created");
+        //console.log(i + " row created");
         for (j = 0; j < gameLevel; j++) {
             var mainChild_div = $("<div>", {
                 class: "target",
