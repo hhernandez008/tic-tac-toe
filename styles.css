@@ -118,64 +118,49 @@ body {
 
 /* animation for gun  need to make a div wrapper for the gun with perspective*/
 #target-box {
-    /*this is the gameboard*/
-    border: 1px solid black;
-    width: 100%;
-    height: 200px
 }
 
 #pointer-wrap {
     /* this is going to be an image.. just a box for now*/
-    border: 1px solid black;
-    width: 30%;
-    height: 200px;
+
+    width: 100%;
+    height: 100%;
     position: absolute;
-    left: 30%;
-    top: 3em;
-    background-color: green;
+    left: 8%;
+    top: 0em;
     -webkit-transform: rotateX(50deg);
 }
 
 #perspective {
     /*container for gun image*/
-    height: 15%;
+    height: 30%;
     width: 33%;
-    -webkit-perspective: 400px;
-    border: 1px solid black;
+    -webkit-perspective: 900;
     position: absolute;
-    top: 80%;
-    left: 40%;
-}
-
-#pointer-arrow {
-    /*we can get rid of this */
-    display: block;
-    position: absolute;
-    top: 43px;
-    left: 50%;
-    width: 15px;
-    height: 15px;
-    margin-left: -10px;
-    background: rgba(0, 0, 0, 0.0);
-    border: 5px solid #000;
-    border-bottom: none;
-    border-right: none;
-    -webkit-transform: rotate(45deg);
-
+    top: 76%;
+    left: 31%;
 }
 
 #pointer-guide {
-    /*dotten guide line*/
     display: block;
     position: absolute;
-    bottom: 140px;
-    left: 50%;
+    bottom: 320px;
+    left: 51.5%;
     width: 1px;
-    height: 250px;
+    height: 116px;
     margin-left: -2px;
-    background: rgba(0, 0, 0, 0.0);
-    border-right: 3px dashed red;
+    background: rgba(0,0,0,0.0);
+    border-right: 6px dashed green;
 }
+
+#pointer-wrap img {
+    width: 100%;
+    height: 100%;
+    transform: rotateZ(90deg);
+    position: absolute;
+    top: 44%;
+}
+
 
 .sign {
     position: absolute;
