@@ -102,8 +102,8 @@ function setBoard(gameLevel){
                 rowIndex: i,
                 squareIndex: j
             });
-            var $animationContainer = $("<div>");
-            var $animationContainer2 = $("<div>");
+            var $animationContainer = $("<div>").addClass('div1');
+            var $animationContainer2 = $("<div>").addClass('div2');
             $(mainChild_div).append($animationContainer).append($animationContainer2);
             $(mainChild_row).append(mainChild_div);
             gameSquares[i][j] = '';
@@ -150,13 +150,21 @@ function canIClick(element, i, j) {
  */
 function whoseTurn(self, i, j) {
 
+
+
+
+    var $first = $(self).find('.div1');
+    var $second = $(self).find('.div2');
+
     if (xTurn) {
-        $(self).text("playerX");
+
+        $first.addClass('one1 expand1');
+        $second.addClass('one2 expand2');
         gameSquares[i][j]= 'X';
         win("X", gameSquares);
         xTurn = false;
     } else {
-        $(self).text("playerO");
+        $first.addClass('two expandCircle');
         gameSquares[i][j]= 'O';
         win("O", gameSquares);
         xTurn = true;
@@ -211,8 +219,7 @@ function win(player, array){
     i=0;
     //check diagnol left to right
     for(var z = 0; z<arr.length;z++){
-        console.log('i  ' + i);
-        console.log(arr[z][i]);
+
         if(arr[z][i]==player){
             count+=1;
         }
