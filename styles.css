@@ -159,13 +159,12 @@ body {
 #pointer-guide {
     display: block;
     position: absolute;
-    bottom: 320px;
-    left: 51.5%;
+    bottom: 59px;
+    left: 50%;
     width: 1px;
-    height: 116px;
+    height: 235px;
     margin-left: -2px;
-    background: rgba(0,0,0,0.0);
-    border-right: 6px dashed green;
+    border-right: 4px solid rgb(16, 229, 10);
 }
 
 #pointer-wrap img {
