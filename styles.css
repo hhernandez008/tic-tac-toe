@@ -32,6 +32,11 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    transition: 1s;
+}
+
+.row {
+    transition: 1s;
 }
 
 .col-xs-2 {
@@ -186,4 +191,9 @@ body {
     background-color: #C47335;
     font-size: 2em;
     border: 1px solid black;
+}
+/*add this class for resetting the cards, setTimeout to remove class*/
+.reset-row {
+    transform: rotateX(90deg);
+    transform-origin: 50% 100%;
 }
