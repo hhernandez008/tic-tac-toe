@@ -10,7 +10,7 @@ function mouse(e) {
     if(e.clientX<1200){
         pw.css('-webkit-transform', 'rotate3d(-1.5,0, 1,'+degree+'deg)');
     }else{
-        pw.css('-webkit-transform', 'rotate3d(1,0, 1,'+degree+'deg)');
+        pw.css('-webkit-transform', 'rotate3d(1.5,0, 1,'+degree+'deg)');
     }
 
 
