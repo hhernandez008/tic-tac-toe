@@ -43,19 +43,19 @@ $(document).ready(function () {
 
 
 //game board switch button
-$( ".switch" ).click(function() {
-    $( ".switch" ).toggle();
-});
+    $( ".switch" ).click(function() {
+        $( ".switch" ).toggle();
+    });
 
-$("#3x3").click(function() {
-    $('.background-three').removeClass('hidden');
-    $('.background-five').addClass('hidden');
-});
+    $("#3x3").click(function() {
+        $('.background-three').removeClass('hidden');
+        $('.background-five').addClass('hidden');
+    });
 
-$("#5x5").click(function() {
-    $('.background-three').addClass('hidden');
-    $('.background-five').removeClass('hidden');
-});
+    $("#5x5").click(function() {
+        $('.background-three').addClass('hidden');
+        $('.background-five').removeClass('hidden');
+    });
 
 });//end ready function
 
