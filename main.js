@@ -7,6 +7,7 @@ var xTurn = false;
 var gameSquares = [];
 var easy = 3;
 var hard = 5;
+var currentGameLevel = easy;
 
 
 $(document).ready(function () {
@@ -15,7 +16,7 @@ $(document).ready(function () {
     $('#winner').modal('hide');
 
     //default game board size 3x3 (easy)
-    setBoard(easy);
+    setBoard(currentGameLevel);
 
     //click handler for ducks/tic-tac-toe squares
     $(".center").on("click", ".target", function () {
@@ -34,17 +35,19 @@ $(document).ready(function () {
         $('.background-three').removeClass('hidden');
         $('.background-five').addClass('hidden');
         setBoard(easy);
+        currentGameLevel = easy;
     });
 
     $("#5x5").click(function() {
         $('.background-three').addClass('hidden');
         $('.background-five').removeClass('hidden');
         setBoard(hard);
+        currentGameLevel = hard;
     });
 
     //reset click handler
     $(".reset").on("click", function () {
-        reset();
+        reset(currentGameLevel);
     })
 
 });//end ready function
@@ -148,7 +151,7 @@ function whoseTurn(self, i, j) {
 /**
  * reset the game board, remove animation for X's & O's
  */
-function reset() {
+function reset(gameLevel) {
     $(".center").on("click", ".target", function () {
         var rowIndex = $(this).attr("rowIndex");
         var squareIndex = $(this).attr("squareIndex");
@@ -159,6 +162,7 @@ function reset() {
     setTimeout(function(){
         $('.row').removeClass('reset-row');
     }, 2000);
+    resetBoardArray(gameLevel);
 }
 
 /**
