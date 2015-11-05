@@ -5,6 +5,8 @@
 
 var xTurn = false;
 var gameSquares = [];
+var easy = 3;
+var hard = 5;
 
 
 $(document).ready(function () {
@@ -18,14 +20,83 @@ $(document).ready(function () {
      * dynamically creates game board, adding properties respectively, and appending to .center
      * @type {number}
      */
-    var easy = 2;
 
-    for (i = 0; i <= easy; i++) {
+    //default game board size 3x3
+    var gameLevel = easy;
+
+    setBoard(easy);
+
+
+    //function setBoard(gameLevel){
+    //    for (i = 0; i < gameLevel; i++) {
+    //        gameSquares[i] = [];
+    //        var mainChild_row = $("<div>", {
+    //            class: "row"
+    //        });
+    //        for (j = 0; j < easy; j++) {
+    //            var mainChild_div = $("<div>", {
+    //                class: "target",
+    //                rowIndex: i,
+    //                squareIndex: j
+    //            });
+    //            var $animationContainer = $("<div>");
+    //            var $animationContainer2 = $("<div>");
+    //            $(mainChild_div).append($animationContainer).append($animationContainer2);
+    //            $(mainChild_row).append(mainChild_div);
+    //            gameSquares[i][j] = '';
+    //        }
+    //        $(".board-one").append(mainChild_row);
+    //    }
+    //}
+
+    /**
+     * targets all class target elements and adds class col-xs-2 if gameSquares.length is equal to 3, appends images/goose-100.png
+     * to target. otherwise appends images/goose-60.png to target and adds class col-xs-1
+     */
+    //if (gameSquares.length = 3) {
+    //    var imageEasy = $("<img>", {
+    //        src: 'images/goose-100.png'
+    //    });
+    //    $(".target").addClass('col-xs-2');
+    //    $(".target").append(imageEasy);
+    //} else {
+    //    var imageHard = $("<img>", {
+    //        src: 'images/goose-60.png'
+    //    });
+    //    $(".target").addClass('col-xs-1');
+    //    $(".target").append(imageHard);
+    //}
+
+
+//game board switch button
+    $( ".switch" ).click(function() {
+        $( ".switch" ).toggle();
+    });
+
+    $("#3x3").click(function() {
+        $('.background-three').removeClass('hidden');
+        $('.background-five').addClass('hidden');
+        setBoard(easy);
+    });
+
+    $("#5x5").click(function() {
+        $('.background-three').addClass('hidden');
+        $('.background-five').removeClass('hidden');
+        setBoard(hard);
+    });
+
+});//end ready function
+
+function setBoard(gameLevel){
+    $(".row").remove();
+    console.log(gameLevel);
+    for (i = 0; i < gameLevel; i++) {
         gameSquares[i] = [];
         var mainChild_row = $("<div>", {
             class: "row"
         });
-        for (j = 0; j <= easy; j++) {
+        console.log(i + " row created");
+        for (j = 0; j < gameLevel; j++) {
             var mainChild_div = $("<div>", {
                 class: "target",
                 rowIndex: i,
@@ -37,13 +108,8 @@ $(document).ready(function () {
             $(mainChild_row).append(mainChild_div);
             gameSquares[i][j] = '';
         }
-        $(".board-one").append(mainChild_row);
+        $(".center").append(mainChild_row);
     }
-
-    /**
-     * targets all class target elements and adds class col-xs-2 if gameSquares.length is equal to 3, appends images/goose-100.png
-     * to target. otherwise appends images/goose-60.png to target and adds class col-xs-1
-     */
     if (gameSquares.length = 3) {
         var imageEasy = $("<img>", {
             src: 'images/goose-100.png'
@@ -57,24 +123,9 @@ $(document).ready(function () {
         $(".target").addClass('col-xs-1');
         $(".target").append(imageHard);
     }
+}
 
 
-//game board switch button
-    $( ".switch" ).click(function() {
-        $( ".switch" ).toggle();
-    });
-
-    $("#3x3").click(function() {
-        $('.background-three').removeClass('hidden');
-        $('.background-five').addClass('hidden');
-    });
-
-    $("#5x5").click(function() {
-        $('.background-three').addClass('hidden');
-        $('.background-five').removeClass('hidden');
-    });
-
-});//end ready function
 
 /**
  * determines if game square has been clicked, if it has then the function returns, if it hasnt been clicked then runs
@@ -119,6 +170,12 @@ function reset() {
     $(".target").children().removeClass("playerX playerO");
 }
 
+/**
+ * Determine if player wins the game
+ * @param player
+ * @param array
+ * @returns {string}
+ */
 function win(player, array){
     var arr = array;
     var count = 0;
@@ -167,7 +224,7 @@ function win(player, array){
         count = 0;
         i=arr.length-1; //make i=2 so we go backwards on the next check
     }
-    //check diagnol right to left
+    //check diagonal right to left
     for(var k = 0; k<arr.length;k++){
         if(arr[k][i]==player){
             count+=1;
