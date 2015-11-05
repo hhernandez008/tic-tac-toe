@@ -3,44 +3,60 @@ body {
     height: 100vh;
     perspective: 1000px;
 }
-
-.background-three {
+.background-three, .background-five {
     width: 100vw;
     height: 100vh;
+}
+
+.background-three {
     background: url('images/t3-bg3.jpg') no-repeat;
     background-size: 100% 100%;
 }
 
 .background-five {
-    width: 100vw;
-    height: 100vh;
     background: url('images/t3-bg5.png') no-repeat;
     background-size: 100% 100%;
 }
 
-.center {
+/*had to separate the tops to visually work between gameboard sizes.*/
+.board-one {
+    top: 72.5%;
+}
+/*had to separate the tops to visually work between gameboard sizes.*/
+.board-two {
+    top: 74%;
+}
+/*centering gameboards.*/
+.board-one, .board-two {
     position: absolute;
-    top: 47%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-align: center;
 }
 
 .col-xs-2 {
-    border: 1px solid black;
     width: 15vw;
     height: 15vh;
     margin-top: 1.6em;
 }
 
 .col-xs-1 {
-    border: 1px solid black;
     width: 10vw;
     height: 9.5vh;
     margin-top: 0.65em;
 }
-
+/*Using this class to hide elements. */
 .hidden {
     display: none;
+}
+/* positioned absolute to avoid any troubles switching board size. */
+.left{
+    float: left;
+    position: absolute;
+}
+
+.right {
+    float: right;
 }
 
 /*  X and animation */
@@ -122,10 +138,13 @@ body {
 
 #perspective {
     /*container for gun image*/
-    height: 300px;
+    height: 15%;
+    width: 33%;
     -webkit-perspective: 400px;
     border: 1px solid black;
-    position: relative;
+    position: absolute;
+    top: 80%;
+    left: 40%;
 }
 
 #pointer-arrow {
@@ -158,3 +177,8 @@ body {
     border-right: 3px dashed red;
 }
 
+.sign {
+    position: absolute;
+    top: 73%;
+    left: 2%;
+}
