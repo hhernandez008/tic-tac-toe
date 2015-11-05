@@ -37,8 +37,9 @@ $(document).ready(function () {
             $(mainChild_row).append(mainChild_div);
             gameSquares[i][j] = '';
         }
-        $(".center").append(mainChild_row);
+        $(".board-one").append(mainChild_row);
     }
+
     /**
      * targets all class target elements and adds class col-xs-2 if gameSquares.length is equal to 3, appends images/goose-100.png
      * to target. otherwise appends images/goose-60.png to target and adds class col-xs-1
@@ -56,6 +57,22 @@ $(document).ready(function () {
         $(".target").addClass('col-xs-1');
         $(".target").append(imageHard);
     }
+
+
+//game board switch button
+$( ".switch" ).click(function() {
+    $( ".switch" ).toggle();
+});
+
+$("#3x3").click(function() {
+    $('.background-three').removeClass('hidden');
+    $('.background-five').addClass('hidden');
+});
+
+$("#5x5").click(function() {
+    $('.background-three').addClass('hidden');
+    $('.background-five').removeClass('hidden');
+});
 
 });//end ready function
 
@@ -96,7 +113,7 @@ function whoseTurn(self, i, j) {
 /**
  * reset the game board, removes class playerX and playerO
  */
-
 function reset() {
     $(".target").children().removeClass("playerX playerO");
 }
+
