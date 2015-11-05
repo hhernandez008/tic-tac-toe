@@ -20,4 +20,4 @@ function mouse(e) {
 
 }
 
-$('.board-one').mousemove(mouse);
+$('.center').mousemove(mouse);

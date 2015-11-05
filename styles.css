@@ -26,7 +26,7 @@ body {
 .board-two {
     top: 47%;
 }
-/*centering gameboards.*/
+/*centering game boards.*/
 .board-one, .board-two {
     position: absolute;
     left: 50%;
