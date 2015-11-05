@@ -20,11 +20,11 @@ body {
 
 /*had to separate the tops to visually work between gameboard sizes.*/
 .board-one {
-    top: 72.5%;
+    top: 46.5%;
 }
 /*had to separate the tops to visually work between gameboard sizes.*/
 .board-two {
-    top: 73.5%;
+    top: 47%;
 }
 /*centering gameboards.*/
 .board-one, .board-two {
@@ -73,34 +73,39 @@ body {
     position: relative;
 }
 
-#one1 {
-    border-right: 3px solid green;
+.one1 {
+    border-right: 8px solid #3B2750;
     width: 50%;
-    height: 100%;
+    height: 50%;
     -webkit-transform: skew(0) scale(0);
     position: absolute;
     transition: 2s;
+    top: 39%;
+    left: 0%;
 
 }
 
-#one2 {
-    border-right: 3px solid green;
+.one2 {
+    border-right: 7px solid #3B2750;
     width: 50%;
-    height: 100%;
-    -webkit-transform: skew(0) scale(0);;
+    height: 50%;
+    position: absolute;
+    -webkit-transform: skew(0) scale(0);
     transition: 2s;
+    top: 39%;
+    left: 3%;
 
 }
 
-#container1:hover > #one2 {
+.expand2{
     -webkit-transform: skew(45deg) scale(1);
 }
 
-#container1:hover > #one1 {
+.expand1 {
     -webkit-transform: skew(-45deg) scale(1);
 }
 
-/*  circle and animation */
+/* O circle and animation */
 #container2 {
     display: block;
     border: 1px solid black;
@@ -109,15 +114,19 @@ body {
 
 }
 
-#two {
-    border: 3px solid red;
-    height: 95%;
+.two {
+    position: absolute;
+    border: 8px solid red;
+    height: 40%;
+    width: 30%;
     border-radius: 50%;
     transition: 2s;
     -webkit-transform: scale(0) rotateY(0);
+    top: 44%;
+    left: 35%;
 }
 
-#container2:hover > #two {
+.expandCircle {
     -webkit-transform: scale(1) rotateY(360deg);
 }
 
