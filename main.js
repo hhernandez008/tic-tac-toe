@@ -149,6 +149,11 @@ function whoseTurn(self, i, j) {
  * reset the game board, remove animation for X's & O's
  */
 function reset() {
+    $(".center").on("click", ".target", function () {
+        var rowIndex = $(this).attr("rowIndex");
+        var squareIndex = $(this).attr("squareIndex");
+        canIClick(this, rowIndex, squareIndex);
+    });
     $(".target").children().removeClass("one1 expand1 one2 expand2 two expandCircle");
     $('.row').addClass('reset-row');
     setTimeout(function(){
@@ -177,6 +182,7 @@ function win(player, array){
         if(count===arr.length){
             $modal.text("Congratulations! " + player + "'s Win.");
             $('#winner').modal('show');
+            gameSquares = [];
             return 'win';
         }else{
             count = 0;
@@ -192,6 +198,7 @@ function win(player, array){
         if(count===arr.length){
             $modal.text("Congratulations! " + player + "'s Win.");
             $('#winner').modal('show');
+            gameSquares = [];
             return 'win';
         }else{
             count = 0;
@@ -212,6 +219,7 @@ function win(player, array){
     if(count===arr.length){
         $modal.text("Congratulations! " + player + "'s Win.");
         $('#winner').modal('show');
+        gameSquares = [];
         return 'win';
     }else{
         count = 0;
@@ -228,6 +236,7 @@ function win(player, array){
     if(count===arr.length){
         $modal.text("Congratulations! " + player + "'s Win.");
         $('#winner').modal('show');
+        gameSquares = [];
         return 'win';
     }else{
         count = 0;
