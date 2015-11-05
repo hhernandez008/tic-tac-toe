@@ -117,6 +117,10 @@ function whoseTurn(self, i, j) {
  */
 function reset() {
     $(".target").children().removeClass("playerX playerO");
+    $('.row').addClass('reset-row');
+    setTimeout(function(){
+        $('.row').removeClass('reset-row');
+    }, 2000);
 }
 
 function win(player, array){

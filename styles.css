@@ -20,11 +20,11 @@ body {
 
 /*had to separate the tops to visually work between gameboard sizes.*/
 .board-one {
-    top: 72.5%;
+    top: 46.5%;
 }
 /*had to separate the tops to visually work between gameboard sizes.*/
 .board-two {
-    top: 73.5%;
+    top: 47%;
 }
 /*centering gameboards.*/
 .board-one, .board-two {
@@ -196,4 +196,8 @@ body {
 .reset-row {
     transform: rotateX(90deg);
     transform-origin: 50% 100%;
+}
+
+button:focus {
+    outline: 0;
 }
