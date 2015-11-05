@@ -41,7 +41,20 @@ $(document).ready(function(){
         }
         $(".center").append(mainChild_row);
     }
+//game board switch button
+$( ".switch" ).click(function() {
+    $( ".switch" ).toggle();
+});
 
+$("#3x3").click(function() {
+    $('.background-three').removeClass('hidden');
+    $('.background-five').addClass('hidden');
+});
+
+$("#5x5").click(function() {
+    $('.background-three').addClass('hidden');
+    $('.background-five').removeClass('hidden');
+});
 
 });//end ready function
 
@@ -56,3 +69,4 @@ function whoseTurn(self){
         xTurn = true;
     }
 } //end whoseTurn
+
