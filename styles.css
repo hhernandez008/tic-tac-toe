@@ -26,7 +26,7 @@ body {
 .board-two {
     top: 47%;
 }
-/*centering gameboards.*/
+/*centering game boards.*/
 .board-one, .board-two {
     position: absolute;
     left: 50%;
@@ -159,7 +159,7 @@ body {
 #pointer-guide {
     display: block;
     position: absolute;
-    bottom: 114px;
+    bottom: 54%;
     left: 50%;
     width: 1px;
     height: 174px;
@@ -210,4 +210,14 @@ body {
 @media screen and (max-width: 1280px) {
     .board-one {
         top: 38%;
+    }
+}
+
+.modal.in .modal-dialog {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+    margin-top: 100px;
+    font-size: 2.5em;
 }
