@@ -8,18 +8,13 @@ var gameSquares = [];
 $(document).ready(function () {
     $(".center").on("click", ".target", function () {
         var rowIndex = $(this).attr("rowIndex");
-        console.log(rowIndex);
         var squareIndex = $(this).attr("squareIndex");
-        console.log(squareIndex);
         canIClick(this, rowIndex, squareIndex);
     });
 
-
-    //turn off click handler if box filled
-
 // for loop for 3x3 game board
     var easy = 2;
-    var hard = 4;
+
     for (i = 0; i <= easy; i++) {
         gameSquares[i] = [];
         var mainChild_row = $("<div>", {
@@ -40,6 +35,13 @@ $(document).ready(function () {
         $(".center").append(mainChild_row);
     }
 
+    console.log(gameSquares.length);
+// targets all class target elements and adds class col-xs-2 if gameSquares.length is equal to 3
+    if (gameSquares.length = 3) {
+        $(".target").addClass('col-xs-2');
+    }
+
+
 //game board switch button
 $( ".switch" ).click(function() {
     $( ".switch" ).toggle();
@@ -55,12 +57,10 @@ $("#5x5").click(function() {
     $('.background-five').removeClass('hidden');
 });
 
-    console.log(gameSquares.length);
-// targets all class target elements and adds class col-xs-2 if gameSquares.length is equal to 3
-    if (gameSquares.length = 3) {
-        $(".target").addClass('col-xs-2');
-    }
 });//end ready function
+
+
+
 function canIClick(element, i, j) {
     if (gameSquares[i][j] != '') {
         return;
@@ -81,4 +81,10 @@ function whoseTurn(self,i, j) {
         xTurn = true;
     }
 } //end whoseTurn
+
+
+//reset the game board
+function reset(){
+    $(".target").children().removeClass("playerX playerO");
+}
 
