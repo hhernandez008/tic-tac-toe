@@ -129,6 +129,7 @@ function whoseTurn(self, i, j) {
 
     if (xTurn) {
         $('#gun-fire').attr('autoplay', 'autoplay').trigger('load');
+        $('#quack').attr('autoplay', 'autoplay').trigger('load');
         $first.addClass('one1 expand1');
         $second.addClass('one2 expand2');
         gameSquares[i][j]= 'X';
@@ -136,6 +137,7 @@ function whoseTurn(self, i, j) {
         xTurn = false;
     } else {
         $('#gun-fire').attr('autoplay', 'autoplay').trigger('load');
+        $('#quack').attr('autoplay', 'autoplay').trigger('load');
         $first.addClass('two expandCircle');
         gameSquares[i][j]= 'O';
         win("O", gameSquares);
