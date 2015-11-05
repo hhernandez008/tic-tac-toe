@@ -73,10 +73,12 @@ function whoseTurn(self,i, j) {
     if (xTurn) {
         $(self).text("playerX");
         gameSquares[i][j]= 'X';
+        win("X", gameSquares);
         xTurn = false;
     } else {
         $(self).text("playerO");
         gameSquares[i][j]= 'O';
+        win("O", gameSquares);
         xTurn = true;
     }
 } //end whoseTurn
@@ -87,3 +89,87 @@ function reset(){
     $(".target").children().removeClass("playerX playerO");
 }
 
+function win(player, array){
+    var arr = array;
+    var count = 0;
+    var i = 0;
+    //check horizontal
+    for(var x = 0; x<arr.length; x++){
+        for(var j = 0; j<arr.length; j++){
+            if(arr[x][j]===player){
+                count+=1;
+            }
+        }
+        if(count===arr.length){
+            console.log("WIN player " + player);
+        }else{
+            count = 0;
+        }
+    }
+    //check vertical index 0
+
+    for(var y = 0; y<arr.length;y++){
+        if(arr[y][i]=== player){
+            console.log(arr[y][i] );
+            count+=1;
+        }
+    }
+    if(count===arr.length){
+        console.log("WIN player " + player);
+    }else{
+        count = 0;
+        i+=1;
+    }
+    //check vertical index 1
+
+    for(var y = 0; y<arr.length;y++){
+        if(arr[y][i]=== player){
+            count+=1;
+        }
+    }
+    if(count===arr.length){
+        console.log("WIN player " + player);
+    }else{
+        count = 0;
+        i+=1;
+    }
+
+    //check vertial index2
+    for(var y = 0; y<arr.length;y++){
+        if(arr[y][i]=== player){
+            count+=1;
+        }
+    }
+    if(count===arr.length){
+        console.log("WIN player " + player);
+    }else{
+        count = 0;
+        i=0;
+    }
+    //check diagnol left to right
+    for(var z = 0; z<arr.length;z++){
+        if(arr[z][i]===player){
+            count+=1;
+        }
+        i+=1;
+    }
+    if(count===arr.length){
+        console.log("WIN player " + player);
+    }else{
+        count = 0;
+        i=2; //make i=2 so we go backwards on the next check
+    }
+    //check diagnol right to left
+    for(var k = 0; k<arr.length;k++){
+        if(arr[k][i]===player){
+            count+=1;
+        }
+        i-=1;
+    }
+    if(count===arr.length){
+        console.log("WIN player " + player);
+    }else{
+        count = 0;
+        i=0;
+    }
+}
