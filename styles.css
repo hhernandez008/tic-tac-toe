@@ -2,6 +2,7 @@ body {
     width: 100vw;
     height: 100vh;
     perspective: 1000px;
+    background-color: rgba(113, 67, 7, 0.99);
 }
 .background-three, .background-five {
     width: 100vw;
