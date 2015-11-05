@@ -46,9 +46,10 @@ $(document).ready(function () {
     });
 
     //reset click handler
-    $(".reset").on("click", function () {
+    $(".reset").click(function () {
+        console.log("hello");
         reset(currentGameLevel);
-    })
+    });
 
 });//end ready function
 
@@ -152,11 +153,6 @@ function whoseTurn(self, i, j) {
  * reset the game board, remove animation for X's & O's
  */
 function reset(gameLevel) {
-    $(".center").on("click", ".target", function () {
-        var rowIndex = $(this).attr("rowIndex");
-        var squareIndex = $(this).attr("squareIndex");
-        canIClick(this, rowIndex, squareIndex);
-    });
     $(".target").children().removeClass("one1 expand1 one2 expand2 two expandCircle");
     $('.row').addClass('reset-row');
     setTimeout(function(){
