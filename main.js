@@ -39,17 +39,28 @@ $(document).ready(function () {
     if (gameSquares.length = 3) {
         $(".target").addClass('col-xs-2');
     }
+});
+//end ready function
 
-});//end ready function
-
-
-
+/**
+ * this function checks whether a square has been clicked, if it has then the function returns, if it hasn't then
+ * function whoseTurn runs.
+ * @param element
+ * @param i
+ * @param j
+ */
 function canIClick(element, i, j) {
     if (gameSquares[i][j] != '') {
         return;
     } else {
         whoseTurn(element,i, j);
     }
+}
+/**
+ * this function resets the board, removing the classes playerX and playerO
+ */
+function reset() {
+    $(".target").children().removeClass("playerX playerO");
 }
 
 function whoseTurn(self,i, j) {
@@ -65,7 +76,3 @@ function whoseTurn(self,i, j) {
     }
 } //end whoseTurn
 
-//reset the game board
-function reset(){
-    $(".target").children().removeClass("playerX playerO");
-}
