@@ -10,65 +10,19 @@ var hard = 5;
 
 
 $(document).ready(function () {
+
+    //default game board size 3x3 (easy)
+    setBoard(easy);
+
+    //click handler for ducks/tic-tac-toe squares
     $(".center").on("click", ".target", function () {
         var rowIndex = $(this).attr("rowIndex");
         var squareIndex = $(this).attr("squareIndex");
         canIClick(this, rowIndex, squareIndex);
     });
 
-    /**
-     * dynamically creates game board, adding properties respectively, and appending to .center
-     * @type {number}
-     */
 
-    //default game board size 3x3
-    var gameLevel = easy;
-
-    setBoard(easy);
-
-
-    //function setBoard(gameLevel){
-    //    for (i = 0; i < gameLevel; i++) {
-    //        gameSquares[i] = [];
-    //        var mainChild_row = $("<div>", {
-    //            class: "row"
-    //        });
-    //        for (j = 0; j < easy; j++) {
-    //            var mainChild_div = $("<div>", {
-    //                class: "target",
-    //                rowIndex: i,
-    //                squareIndex: j
-    //            });
-    //            var $animationContainer = $("<div>");
-    //            var $animationContainer2 = $("<div>");
-    //            $(mainChild_div).append($animationContainer).append($animationContainer2);
-    //            $(mainChild_row).append(mainChild_div);
-    //            gameSquares[i][j] = '';
-    //        }
-    //        $(".board-one").append(mainChild_row);
-    //    }
-    //}
-
-    /**
-     * targets all class target elements and adds class col-xs-2 if gameSquares.length is equal to 3, appends images/goose-100.png
-     * to target. otherwise appends images/goose-60.png to target and adds class col-xs-1
-     */
-    //if (gameSquares.length = 3) {
-    //    var imageEasy = $("<img>", {
-    //        src: 'images/goose-100.png'
-    //    });
-    //    $(".target").addClass('col-xs-2');
-    //    $(".target").append(imageEasy);
-    //} else {
-    //    var imageHard = $("<img>", {
-    //        src: 'images/goose-60.png'
-    //    });
-    //    $(".target").addClass('col-xs-1');
-    //    $(".target").append(imageHard);
-    //}
-
-
-//game board switch button
+    //game board switch button
     $( ".switch" ).click(function() {
         $( ".switch" ).toggle();
     });
@@ -85,11 +39,19 @@ $(document).ready(function () {
         setBoard(hard);
     });
 
+    //reset click handler
+    $(".reset").on("click", function () {
+        reset();
+    })
+
 });//end ready function
 
+/**
+ * dynamically creates game board, adding properties respectively, and appending to .center
+ * @type {number}
+ */
 function setBoard(gameLevel){
-    $(".row").remove();
-    console.log(gameLevel);
+    clearBoard();
     for (i = 0; i < gameLevel; i++) {
         gameSquares[i] = [];
         var mainChild_row = $("<div>", {
@@ -110,6 +72,10 @@ function setBoard(gameLevel){
         }
         $(".center").append(mainChild_row);
     }
+    /**
+     * targets all class target elements and adds class col-xs-2 if gameSquares.length is equal to 3, appends images/goose-100.png
+     * to target. otherwise appends images/goose-60.png to target and adds class col-xs-1
+     */
     if (gameSquares.length = 3) {
         var imageEasy = $("<img>", {
             src: 'images/goose-100.png'
@@ -123,12 +89,18 @@ function setBoard(gameLevel){
         $(".target").addClass('col-xs-1');
         $(".target").append(imageHard);
     }
-}
-
-
+} //end setBoard
 
 /**
- * determines if game square has been clicked, if it has then the function returns, if it hasnt been clicked then runs
+ * clear the game board for changing from 3x3  to 5x5
+ */
+function clearBoard(){
+    $(".row").remove();
+    gameSquares=[];
+}
+
+/**
+ * determines if game square has been clicked, if it has then the function returns, if it hasn't been clicked then runs
  * function whoseTurn
  * @param element
  * @param i
@@ -143,21 +115,17 @@ function canIClick(element, i, j) {
 }
 
 /**
- * determines if x's or o's turn
+ * determines if x's or o's turn. O's go first.
  * @param self
  * @param i
  * @param j
  */
 function whoseTurn(self, i, j) {
 
-
-
-
     var $first = $(self).find('.div1');
     var $second = $(self).find('.div2');
 
     if (xTurn) {
-
         $first.addClass('one1 expand1');
         $second.addClass('one2 expand2');
         gameSquares[i][j]= 'X';
@@ -172,14 +140,14 @@ function whoseTurn(self, i, j) {
 }
 
 /**
- * reset the game board, removes class playerX and playerO
+ * reset the game board, removes animation for X's & O's
  */
 function reset() {
-    $(".target").children().removeClass("playerX playerO");
+    $(".target").children().removeClass("one1 expand1 one2 expand2 two expandCircle");
 }
 
 /**
- * Determine if player wins the game
+ * Determine if the current player has won the game
  * @param player
  * @param array
  * @returns {string}
@@ -217,7 +185,8 @@ function win(player, array){
     }
 
     i=0;
-    //check diagnol left to right
+
+    //check diagonal left to right
     for(var z = 0; z<arr.length;z++){
 
         if(arr[z][i]==player){
@@ -231,6 +200,7 @@ function win(player, array){
         count = 0;
         i=arr.length-1; //make i=2 so we go backwards on the next check
     }
+
     //check diagonal right to left
     for(var k = 0; k<arr.length;k++){
         if(arr[k][i]==player){
@@ -246,5 +216,7 @@ function win(player, array){
     }
 
 }
+
+
 
 
