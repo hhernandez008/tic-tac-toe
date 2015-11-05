@@ -197,3 +197,7 @@ body {
     transform: rotateX(90deg);
     transform-origin: 50% 100%;
 }
+
+button:focus {
+    outline: 0;
+}
