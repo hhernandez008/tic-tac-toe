@@ -128,12 +128,14 @@ function whoseTurn(self, i, j) {
     var $second = $(self).find('.div2');
 
     if (xTurn) {
+        $('#gun-fire').attr('autoplay', 'autoplay').trigger('load');
         $first.addClass('one1 expand1');
         $second.addClass('one2 expand2');
         gameSquares[i][j]= 'X';
         win("X", gameSquares);
         xTurn = false;
     } else {
+        $('#gun-fire').attr('autoplay', 'autoplay').trigger('load');
         $first.addClass('two expandCircle');
         gameSquares[i][j]= 'O';
         win("O", gameSquares);
