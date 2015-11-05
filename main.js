@@ -1,6 +1,8 @@
 /**
- * Created by Heather on 11/4/2015.
+ * Created by team us on 11/4/2015.
  */
+
+
 var xTurn = false;
 var gameSquares = [];
 
@@ -12,7 +14,10 @@ $(document).ready(function () {
         canIClick(this, rowIndex, squareIndex);
     });
 
-// for loop for 3x3 game board
+    /**
+     * dynamically creates game board, adding properties respectively, and appending to .center
+     * @type {number}
+     */
     var easy = 2;
 
     for (i = 0; i <= easy; i++) {
@@ -34,10 +39,12 @@ $(document).ready(function () {
         }
         $(".center").append(mainChild_row);
     }
-    console.log(gameSquares.length);
-// targets all class target elements and adds class col-xs-2 if gameSquares.length is equal to 3
+    /**
+     * targets all class target elements and adds class col-xs-2 if gameSquares.length is equal to 3, appends images/goose-100.png
+     * to target. otherwise appends images/goose-60.png to target and adds class col-xs-1
+     */
     if (gameSquares.length = 3) {
-        var imageEasy = $("<img>",{
+        var imageEasy = $("<img>", {
             src: 'images/goose-100.png'
         });
         $(".target").addClass('col-xs-2');
@@ -52,30 +59,44 @@ $(document).ready(function () {
 
 });//end ready function
 
-
-
+/**
+ * determines if game square has been clicked, if it has then the function returns, if it hasnt been clicked then runs
+ * function whoseTurn
+ * @param element
+ * @param i
+ * @param j
+ */
 function canIClick(element, i, j) {
     if (gameSquares[i][j] != '') {
         return;
     } else {
-        whoseTurn(element,i, j);
+        whoseTurn(element, i, j);
     }
 }
 
-function whoseTurn(self,i, j) {
+/**
+ * determines if x's or o's turn
+ * @param self
+ * @param i
+ * @param j
+ */
+function whoseTurn(self, i, j) {
 
     if (xTurn) {
         $(self).text("playerX");
-        gameSquares[i][j]= 'X';
+        gameSquares[i][j] = 'X';
         xTurn = false;
     } else {
         $(self).text("playerO");
-        gameSquares[i][j]= 'O';
+        gameSquares[i][j] = 'O';
         xTurn = true;
     }
-} //end whoseTurn
+}
 
-//reset the game board
-function reset(){
+/**
+ * reset the game board, removes class playerX and playerO
+ */
+
+function reset() {
     $(".target").children().removeClass("playerX playerO");
 }
