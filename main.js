@@ -11,6 +11,9 @@ var hard = 5;
 
 $(document).ready(function () {
 
+    //hide win modal
+    $('#winner').modal('hide');
+
     //default game board size 3x3 (easy)
     setBoard(easy);
 
@@ -72,10 +75,9 @@ function setBoard(gameLevel){
         }
         $(".center").append(mainChild_row);
     }
-    /**
-     * targets all class target elements and adds class col-xs-2 if gameSquares.length is equal to 3, appends images/goose-100.png
-     * to target. otherwise appends images/goose-60.png to target and adds class col-xs-1
-     */
+
+    /*targets all class target elements and adds class col-xs-2 if gameSquares.length is equal to 3, appends images/goose-100.png
+    to target. otherwise appends images/goose-60.png to target and adds class col-xs-1*/
     if (gameSquares.length == 3) {
         var imageEasy = $("<img>", {
             src: 'images/goose-100.png'
@@ -140,10 +142,10 @@ function whoseTurn(self, i, j) {
 }
 
 /**
- * reset the game board, removes animation for X's & O's
+ * reset the game board, remove animation for X's & O's
  */
 function reset() {
-    $(".target").children().removeClass("playerX playerO");
+    $(".target").children().removeClass("one1 expand1 one2 expand2 two expandCircle");
     $('.row').addClass('reset-row');
     setTimeout(function(){
         $('.row').removeClass('reset-row');
@@ -151,12 +153,13 @@ function reset() {
 }
 
 /**
- * Determine if the current player has won the game
+ * Determine if the current player has won the game, display a modal show whose won
  * @param player
  * @param array
  * @returns {string}
  */
 function win(player, array){
+    var $modal = $(".modal-body").text("Congratulations! " + player + "'s Win.");
     var arr = array;
     var count = 0;
     var i = 0;
@@ -168,6 +171,8 @@ function win(player, array){
             }
         }
         if(count===arr.length){
+            $modal.text("Congratulations! " + player + "'s Win.");
+            $('#winner').modal('show');
             return 'win';
         }else{
             count = 0;
@@ -181,6 +186,8 @@ function win(player, array){
             }
         }
         if(count===arr.length){
+            $modal.text("Congratulations! " + player + "'s Win.");
+            $('#winner').modal('show');
             return 'win';
         }else{
             count = 0;
@@ -199,6 +206,8 @@ function win(player, array){
         i+=1;
     }
     if(count===arr.length){
+        $modal.text("Congratulations! " + player + "'s Win.");
+        $('#winner').modal('show');
         return 'win';
     }else{
         count = 0;
@@ -213,13 +222,14 @@ function win(player, array){
         i-=1;
     }
     if(count===arr.length){
+        $modal.text("Congratulations! " + player + "'s Win.");
+        $('#winner').modal('show');
         return 'win';
     }else{
         count = 0;
         i=0;
     }
-
-}
+} //end win function
 
 
 
