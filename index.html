@@ -8,6 +8,7 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="main.js"></script>
+    <script src="gun.js"></script>
 
 </head>
 <body>
@@ -17,6 +18,7 @@
     <!--   3x3 game board  -->
     <div class="background-three">
         <div class="container-fluid center board-one">
+
 
         </div>
     </div>
@@ -28,7 +30,12 @@
         </div>
     </div>
 
-<div class="perspective" id="perspective"></div>
+<div class="perspective" id="perspective">
+    <div id="pointer-wrap">
+        <img src="images/gun-barrel.png">
+        <div id="pointer-guide"></div>
+    </div>
+</div>
 <img src="images/wood-sign.png" class="sign" alt="button menu">
 
 <div class="buttons">
@@ -37,6 +44,7 @@
     <button type="button" class="switch" id="3x3" style="display:none">3x3</button>
 </div>
 <button type="button" class="reset">Reset</button>
+
 
 </body>
 </html>

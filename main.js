@@ -1,6 +1,8 @@
 /**
- * Created by Heather on 11/4/2015.
+ * Created by team us on 11/4/2015.
  */
+
+
 var xTurn = false;
 var gameSquares = [];
 
@@ -12,7 +14,10 @@ $(document).ready(function () {
         canIClick(this, rowIndex, squareIndex);
     });
 
-// for loop for 3x3 game board
+    /**
+     * dynamically creates game board, adding properties respectively, and appending to .center
+     * @type {number}
+     */
     var easy = 2;
 
     for (i = 0; i <= easy; i++) {
@@ -32,13 +37,25 @@ $(document).ready(function () {
             $(mainChild_row).append(mainChild_div);
             gameSquares[i][j] = '';
         }
-        $(".center").append(mainChild_row);
+        $(".board-one").append(mainChild_row);
     }
 
-    console.log(gameSquares.length);
-// targets all class target elements and adds class col-xs-2 if gameSquares.length is equal to 3
+    /**
+     * targets all class target elements and adds class col-xs-2 if gameSquares.length is equal to 3, appends images/goose-100.png
+     * to target. otherwise appends images/goose-60.png to target and adds class col-xs-1
+     */
     if (gameSquares.length = 3) {
+        var imageEasy = $("<img>", {
+            src: 'images/goose-100.png'
+        });
         $(".target").addClass('col-xs-2');
+        $(".target").append(imageEasy);
+    } else {
+        var imageHard = $("<img>", {
+            src: 'images/goose-60.png'
+        });
+        $(".target").addClass('col-xs-1');
+        $(".target").append(imageHard);
     }
 
 
@@ -59,32 +76,111 @@ $(document).ready(function () {
 
 });//end ready function
 
-
-
+/**
+ * determines if game square has been clicked, if it has then the function returns, if it hasnt been clicked then runs
+ * function whoseTurn
+ * @param element
+ * @param i
+ * @param j
+ */
 function canIClick(element, i, j) {
     if (gameSquares[i][j] != '') {
         return;
     } else {
-        whoseTurn(element,i, j);
+        whoseTurn(element, i, j);
     }
 }
 
-function whoseTurn(self,i, j) {
+/**
+ * determines if x's or o's turn
+ * @param self
+ * @param i
+ * @param j
+ */
+function whoseTurn(self, i, j) {
 
     if (xTurn) {
         $(self).text("playerX");
         gameSquares[i][j]= 'X';
+        win("X", gameSquares);
         xTurn = false;
     } else {
         $(self).text("playerO");
         gameSquares[i][j]= 'O';
+        win("O", gameSquares);
         xTurn = true;
     }
-} //end whoseTurn
+}
 
-
-//reset the game board
-function reset(){
+/**
+ * reset the game board, removes class playerX and playerO
+ */
+function reset() {
     $(".target").children().removeClass("playerX playerO");
 }
+
+function win(player, array){
+    var arr = array;
+    var count = 0;
+    var i = 0;
+    //check horizontal
+    for(var x = 0; x<arr.length; x++){
+        for(var j = 0; j<arr.length; j++){
+            if(arr[x][j]==player){
+                count+=1;
+            }
+        }
+        if(count===arr.length){
+            return 'win';
+        }else{
+            count = 0;
+        }
+    }
+    //check vertical
+    while(i<arr.length){
+        for(var y = 0; y<arr.length;y++){
+            if(arr[y][i]==player){
+                count+=1;
+            }
+        }
+        if(count===arr.length){
+            return 'win';
+        }else{
+            count = 0;
+            i+=1;
+        }
+    }
+
+    i=0;
+    //check diagnol left to right
+    for(var z = 0; z<arr.length;z++){
+        console.log('i  ' + i);
+        console.log(arr[z][i]);
+        if(arr[z][i]==player){
+            count+=1;
+        }
+        i+=1;
+    }
+    if(count===arr.length){
+        return 'win';
+    }else{
+        count = 0;
+        i=arr.length-1; //make i=2 so we go backwards on the next check
+    }
+    //check diagnol right to left
+    for(var k = 0; k<arr.length;k++){
+        if(arr[k][i]==player){
+            count+=1;
+        }
+        i-=1;
+    }
+    if(count===arr.length){
+        return 'win';
+    }else{
+        count = 0;
+        i=0;
+    }
+
+}
+
 
