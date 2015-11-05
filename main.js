@@ -34,11 +34,27 @@ $(document).ready(function () {
         }
         $(".center").append(mainChild_row);
     }
+
     console.log(gameSquares.length);
 // targets all class target elements and adds class col-xs-2 if gameSquares.length is equal to 3
     if (gameSquares.length = 3) {
         $(".target").addClass('col-xs-2');
     }
+
+//game board switch button
+$( ".switch" ).click(function() {
+    $( ".switch" ).toggle();
+});
+
+$("#3x3").click(function() {
+    $('.background-three').removeClass('hidden');
+    $('.background-five').addClass('hidden');
+});
+
+$("#5x5").click(function() {
+    $('.background-three').addClass('hidden');
+    $('.background-five').removeClass('hidden');
+});
 
 });//end ready function
 
@@ -65,7 +81,9 @@ function whoseTurn(self,i, j) {
     }
 } //end whoseTurn
 
+
 //reset the game board
 function reset(){
     $(".target").children().removeClass("playerX playerO");
 }
+
