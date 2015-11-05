@@ -168,10 +168,11 @@ function reset() {
  * @returns {string}
  */
 function win(player, array){
-    var $modal = $(".modal-body").text("Congratulations! " + player + "'s Win.");
+    var $modal = $(".modal-body");
     var arr = array;
     var count = 0;
     var i = 0;
+    var gameLevel = arr.length;
     //check horizontal
     for(var x = 0; x<arr.length; x++){
         for(var j = 0; j<arr.length; j++){
@@ -182,7 +183,7 @@ function win(player, array){
         if(count===arr.length){
             $modal.text("Congratulations! " + player + "'s Win.");
             $('#winner').modal('show');
-            gameSquares = [];
+            resetBoardArray(gameLevel);
             return 'win';
         }else{
             count = 0;
@@ -198,7 +199,7 @@ function win(player, array){
         if(count===arr.length){
             $modal.text("Congratulations! " + player + "'s Win.");
             $('#winner').modal('show');
-            gameSquares = [];
+            resetBoardArray(gameLevel);
             return 'win';
         }else{
             count = 0;
@@ -219,7 +220,7 @@ function win(player, array){
     if(count===arr.length){
         $modal.text("Congratulations! " + player + "'s Win.");
         $('#winner').modal('show');
-        gameSquares = [];
+        resetBoardArray(gameLevel);
         return 'win';
     }else{
         count = 0;
@@ -236,7 +237,7 @@ function win(player, array){
     if(count===arr.length){
         $modal.text("Congratulations! " + player + "'s Win.");
         $('#winner').modal('show');
-        gameSquares = [];
+        resetBoardArray(gameLevel);
         return 'win';
     }else{
         count = 0;
@@ -245,5 +246,18 @@ function win(player, array){
 } //end win function
 
 
+/**
+ * Reset the array used to determine a win.
+ * @param gameLevel
+ */
+function resetBoardArray(gameLevel){
+    gameSquares = [];
+    for (i = 0; i < gameLevel; i++) {
+        gameSquares[i] = [];
+        for (j = 0; j < gameLevel; j++) {
+            gameSquares[i][j] = '';
+        }
+    }
+}
 
 

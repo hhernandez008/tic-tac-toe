@@ -14,10 +14,6 @@ function mouse(e) {
     }
 
 
-
-
-
-
 }
 
 $('.center').mousemove(mouse);
