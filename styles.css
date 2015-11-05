@@ -120,12 +120,12 @@ body {
     position: absolute;
     border: 8px solid red;
     height: 40%;
-    width: 30%;
+    width: 24%;
     border-radius: 50%;
     transition: 2s;
     -webkit-transform: scale(0) rotateY(0);
     top: 44%;
-    left: 35%;
+    left: 38%;
 }
 
 .expandCircle {
