@@ -41,6 +41,7 @@ $(document).ready(function () {
         $(".target").addClass('col-xs-2');
     }
 
+
 //game board switch button
 $( ".switch" ).click(function() {
     $( ".switch" ).toggle();
