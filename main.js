@@ -143,7 +143,11 @@ function whoseTurn(self, i, j) {
  * reset the game board, removes animation for X's & O's
  */
 function reset() {
-    $(".target").children().removeClass("one1 expand1 one2 expand2 two expandCircle");
+    $(".target").children().removeClass("playerX playerO");
+    $('.row').addClass('reset-row');
+    setTimeout(function(){
+        $('.row').removeClass('reset-row');
+    }, 2000);
 }
 
 /**

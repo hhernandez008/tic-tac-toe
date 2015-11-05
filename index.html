@@ -8,13 +8,12 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="main.js"></script>
-    <script src="gun.js"></script>
 
 </head>
 <body>
 
-<img src="images/barrel-one.png" class="left" alt="player one sign">
-<img src="images/barrel-two.png" class="right" alt="player two sign">
+    <img src="images/barrel-one.png" class="left" alt="player one sign">
+    <img src="images/barrel-two.png" class="right" alt="player two sign">
     <!--   3x3 game board  -->
     <div class="background-three">
         <div class="container-fluid center board-one">
@@ -30,20 +29,21 @@
         </div>
     </div>
 
-<div class="perspective" id="perspective">
-    <div id="pointer-wrap">
-        <img src="images/gun-barrel.png">
-        <div id="pointer-guide"></div>
-    </div>
-</div>
-<img src="images/wood-sign.png" class="sign" alt="button menu">
+    <div class="perspective" id="perspective">
+        <div id="pointer-wrap">
+            <img src="images/gun-barrel.png">
 
-<div class="buttons">
-<!--   button toggles for game states  -->
-    <button type="button" class="switch" id="5x5">5x5</button>
-    <button type="button" class="switch" id="3x3" style="display:none">3x3</button>
-</div>
-<button type="button" class="reset">Reset</button>
+            <div id="pointer-guide"></div>
+        </div>
+    </div>
+    <img src="images/wood-sign.png" class="sign" alt="button menu">
+
+    <div class="buttons">
+        <!--   button toggles for game states  -->
+        <button type="button" class="switch" id="5x5">5x5</button>
+        <button type="button" class="switch" id="3x3" style="display:none">3x3</button>
+    </div>
+    <button type="button" class="reset">Reset</button>
 </body>
 <script src="gun.js"></script>
 </html>
