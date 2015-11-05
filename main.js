@@ -32,7 +32,7 @@ $(document).ready(function () {
             $(mainChild_row).append(mainChild_div);
             gameSquares[i][j] = '';
         }
-        $(".center").append(mainChild_row);
+        $(".board-one").append(mainChild_row);
     }
 
     console.log(gameSquares.length);
