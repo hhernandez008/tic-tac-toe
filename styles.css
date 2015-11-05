@@ -24,7 +24,7 @@ body {
 }
 /*had to separate the tops to visually work between gameboard sizes.*/
 .board-two {
-    top: 74%;
+    top: 73.5%;
 }
 /*centering gameboards.*/
 .board-one, .board-two {
