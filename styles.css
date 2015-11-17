@@ -1,10 +1,8 @@
 body {
     overflow: hidden;
-    width: 100vw;
-    height: 100vh;
     perspective: 1000px;
-    background-color: rgba(113, 67, 7, 0.99);
 }
+/* Game Backdrop */
 .background-three, .background-five {
     width: 100vw;
     height: 100vh;
@@ -20,6 +18,7 @@ body {
     background-size: 100% 100%;
 }
 
+/* Game Board */
 /*had to separate the tops to visually work between gameboard sizes.*/
 .board-one {
     top: 46.5%;
@@ -53,10 +52,13 @@ body {
     height: 9.5vh;
     margin-top: 0.65em;
 }
+
 /*Using this class to hide elements. */
 .hidden {
     display: none;
 }
+
+/* Player Barrels*/
 /* positioned absolute to avoid any troubles switching board size. */
 .left{
     float: left;
@@ -66,13 +68,16 @@ body {
 .right {
     float: right;
 }
+.playerIndicator>img{
+    width: 180px;
+}
 
 /* Ducks */
 .target img{
     height: 90%;
 }
 
-/*  X and animation */
+/*  X animation */
 #container1 {
     border: 1px solid black;
     width: 150px;
@@ -113,7 +118,7 @@ body {
     -webkit-transform: skew(-45deg) scale(1);
 }
 
-/* O circle and animation */
+/* O animation */
 #container2 {
     display: block;
     border: 1px solid black;
@@ -138,20 +143,24 @@ body {
     -webkit-transform: scale(1) rotateY(360deg);
 }
 
+/* Gun/Pointer */
 #pointer-wrap {
-    /* this is going to be an image.. just a box for now*/
-
     width: 100%;
     height: 100%;
     position: absolute;
     left: 8%;
-    top: 0em;
+    top: 0;
     -webkit-transform: rotateX(50deg);
     -webkit-transform-origin: 50% 100%;
 }
-
+#pointer-wrap img {
+    width: 100%;
+    height: 165%;
+    position: absolute;
+    top: -27%;
+}
+/*container for gun image*/
 #perspective {
-    /*container for gun image*/
     height: 30%;
     width: 33%;
     -webkit-perspective: 900;
@@ -160,54 +169,36 @@ body {
     left: 31%;
 }
 
+/* Game Select & Reset Buttons */
 
-#pointer-wrap img {
+button{
+
+    background-color: #AC7F94;
+    border: 2px solid #000000;
+    font-size: 150%;
+    font-weight: bold;
+    margin: 0 10vw;
+}
+.visible-xs{
+    position: absolute;
     width: 100%;
-    height: 165%;
-    position: absolute;
-    top: -27%;
+    bottom: 10%;
 }
-
-#game_sign{
-    position: absolute;
-    bottom: -8%;
-    width: 26%;
-}
-
-.sign {
+/*.visible-xs .switch{*/
     /*position: absolute;*/
-    width: 80%;
-    /*top: 67%;*/
-    /*left: 2%;*/
-}
+    /*left: 7%;*/
+/*}*/
+/*.visible-xs .reset{*/
+    /*float: right;*/
+/*}*/
 
-.switch {
-    position: absolute;
-    top: 29%;
-    left: 18%;
-    transform: rotateY(45deg);
-    background-color: #C47335;
-    font-size: 2em;
-    width: 17%;
-    border: 2px solid #D9A452;
-}
-
-.reset {
-    position: absolute;
-    top: 23%;
-    left: 45%;
-    transform: rotateY(45deg);
-    background-color: #C47335;
-    font-size: 2em;
-    width:25%;
-    border: 2px solid #D9A452;
-}
-/*add this class for resetting the cards, setTimeout to remove class*/
+/*add this class for resetting the cards, setTimeout function to remove class*/
 .reset-row {
     transform: rotateX(90deg);
     transform-origin: 50% 100%;
 }
 
+/* Winner Modal */
 .modal.in .modal-dialog {
     -webkit-transform: translate(0, 0);
     -ms-transform: translate(0, 0);
@@ -215,4 +206,57 @@ body {
     transform: translate(0, 0);
     margin-top: 100px;
     font-size: 2.5em;
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px){
+
+    /* Game Selector & Reset Sign */
+    #game_sign{
+        position: absolute;
+        bottom: -8%;
+        width: 26%;
+    }
+    .sign {
+        width: 80%;
+        height: 100%;
+    }
+    button{
+        margin: 0;
+    }
+    .switch {
+        position: absolute;
+        top: 29%;
+        left: 18%;
+        transform: rotateY(45deg);
+        background-color: #C47335;
+        font-size: 150%;
+        border: 2px solid #D9A452;
+    }
+    .reset{
+        background-color: #C47335;
+        border: 2px solid #D9A452;
+        font-size: 70%;
+        font-weight: bold;
+    }
+    #game_sign>.reset {
+        position: absolute;
+        top: 23%;
+        left: 45%;
+        transform: rotateY(45deg);
+        font-size: 150%;
+        font-weight: normal;
+    }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px){
+
+
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px){
+
 }

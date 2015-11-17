@@ -34,13 +34,13 @@ var tictactoeBoard = function(gameContainer){
             $first.addClass('one1 expand1');
             $second.addClass('one2 expand2');
             self.gameSquares[rowIndex][squareIndex] = 'X';
-            self.win("X", self.gameSquares);
+            self.win("X");
             xTurn = false;
         } else {
             $('audio').attr('autoplay', 'autoplay').trigger('load');
             $first.addClass('two expandCircle');
             self.gameSquares[rowIndex][squareIndex] = 'O';
-            self.win("O", self.gameSquares);
+            self.win("O");
             xTurn = true;
         }
     };
@@ -102,18 +102,6 @@ var tictactoeBoard = function(gameContainer){
 
 
     /**
-     * reset the game board, remove animation for X's & O's
-     */
-    self.reset = function(gameLevel) {
-        $(".target").children().removeClass("one1 expand1 one2 expand2 two expandCircle");
-        $('.row').addClass('reset-row');
-        setTimeout(function(){
-            $('.row').removeClass('reset-row');
-        }, 2000);
-        self.resetBoardArray(gameLevel);
-    };
-
-    /**
      * Determine if the current player has won the game, display a modal show whose won
      * @param player
      * @returns {string}
@@ -124,8 +112,8 @@ var tictactoeBoard = function(gameContainer){
 
         var gameLevel = self.gameSquares.length;
         //check horizontal
-        for(var x = 0; x<gameLevel.length; x++){
-            for(var j = 0; j<gameLevel.length; j++){
+        for(var x = 0; x<gameLevel; x++){
+            for(var j = 0; j<gameLevel; j++){
                 if(self.gameSquares[x][j]==player){
                     count+=1;
                 }
@@ -196,6 +184,18 @@ var tictactoeBoard = function(gameContainer){
         }
     }; //end win function
 
+
+    /**
+     * reset the game board, remove animation for X's & O's
+     */
+    self.reset = function(gameLevel) {
+        $(".target").children().removeClass("one1 expand1 one2 expand2 two expandCircle");
+        $('.row').addClass('reset-row');
+        setTimeout(function(){
+            $('.row').removeClass('reset-row');
+        }, 2000);
+        self.resetBoardArray(gameLevel);
+    };
 
     /**
      * Reset the array used to determine a win.

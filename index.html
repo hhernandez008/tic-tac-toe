@@ -13,9 +13,11 @@
 
 </head>
 <body>
+    <div class="playerIndicator">
+        <img src="images/barrel-one.png" class="left" alt="player one sign">
+        <img src="images/barrel-two.png" class="right" alt="player two sign">
+    </div>
 
-    <img src="images/barrel-one.png" class="left" alt="player one sign">
-    <img src="images/barrel-two.png" class="right" alt="player two sign">
     <!--   3x3 game board  -->
     <div class="background-three">
         <div class="container-fluid center board-one">
@@ -32,13 +34,7 @@
         </div>
     </div>
 
-    <div class="perspective" id="perspective">
-        <div id="pointer-wrap">
-            <img src="images/double-barrel-hue.png">
-
-        </div>
-    </div>
-    <div id="game_sign">
+    <div id="game_sign" class="hidden-xs">
         <img src="images/wood-sign.png" class="sign" alt="button menu">
 
         <div class="buttons">
@@ -49,14 +45,29 @@
         <button type="button" class="reset">Reset</button>
     </div>
 
+    <div class="visible-xs">
+        <div class="buttons">
+            <!--   button toggles for game states  -->
+            <button type="button" class="switch left" id="5x5">5x5</button>
+            <button type="button" class="switch left" id="3x3" style="display:none">3x3</button>
+        </div>
+        <button type="button" class="reset right">Reset</button>
+    </div>
+
+    <div class="perspective" id="perspective">
+        <div id="pointer-wrap">
+            <img src="images/double-barrel-hue.png">
+
+        </div>
+    </div>
+
     <!-- Winner Modal -->
-    <div id="winner" class="modal fade" role="dialog">
+    <div id="winner" class="modal fade" role="dialog" data-backdrop="static">
         <div class="modal-dialog">
 
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
 
                 </div>
                 <div class="modal-body">
