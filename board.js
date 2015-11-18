@@ -184,6 +184,23 @@ var tictactoeBoard = function(gameContainer){
             count = 0;
             i=0;
         }
+        var catsCounter = 0;
+        //cats game //check each row horizontally, each index of each row.. if one turns out to be a string, it's not a cats game.. so return.. else.. cats game!
+        for(var p = 0; p<gameLevel; p++){
+            for(var m = 0; m<gameLevel; m++){
+                if(self.gameSquares[p][m]==='X' || self.gameSquares[p][m]==='O'){
+                    catsCounter += 1;
+                }
+                if( catsCounter === (gameLevel*gameLevel) ){
+                    console.log('cats');
+                    $('.target').find('img').attr('src', 'images/cat.png');
+                    $modal.text("Cats Game :P  Meow Meow");
+                    $('#winner').modal('show');
+                }
+            }
+        }
+
+
     }; //end win function
 
 
