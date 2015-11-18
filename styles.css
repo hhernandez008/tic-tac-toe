@@ -140,8 +140,8 @@ body {
 .two {
     position: absolute;
     border: 7px solid red;
-    height: 50px;
-    width: 50px;
+    height: 50%;
+    width: 85%;
     border-radius: 50%;
     transition: 2s;
     -webkit-transform: scale(0) rotateY(0deg);
@@ -221,9 +221,6 @@ button{
     /* Game Board */
     .board-one {
         top: 21%;
-    }
-    .board-one>.row{
-        margin: 1vh 20%;
     }
     .row{
         margin-top: 0;
@@ -315,13 +312,10 @@ button{
     .board-one {
         top: 21%;
     }
-
-
     /* Player Barrels */
     .playerIndicator img {
         width: 340px;
     }
-
     /* Gun Image */
     #pointer-wrap img {
         width: 60%;
