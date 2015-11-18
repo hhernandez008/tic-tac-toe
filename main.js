@@ -45,6 +45,7 @@ $(document).ready(function () {
     //reset click handler
     $(".reset").click(function () {
         game.reset(currentGameLevel);
+        $('.target').find('img').attr('src', 'images/goose-100.png');
     });
 
 });//end ready function
