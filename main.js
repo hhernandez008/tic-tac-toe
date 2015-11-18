@@ -6,7 +6,7 @@ var easy = 3;
 var hard = 5;
 var currentGameLevel = easy;
 
-var game = new tictactoeBoard(".center"); //Input where the game board be displayed?
+var game = new tictactoeBoard(".center", "#winner"); //Input where the game board be displayed?
 
 
 $(document).ready(function () {

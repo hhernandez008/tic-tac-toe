@@ -140,13 +140,17 @@ body {
 .two {
     position: absolute;
     border: 7px solid red;
-    height: 50%;
-    width: 85%;
+    height: 50px;
+    width: 50px;
     border-radius: 50%;
     transition: 2s;
     -webkit-transform: scale(0) rotateY(0deg);
     left: 50%;
     transform: translate(-50%, 50%) !important;
+}
+.background-five .two{
+    height: 50%;
+    width: 85%;
 }
 
 .expandCircle {
@@ -310,7 +314,7 @@ button{
 @media only screen and (min-width : 1200px){
     /* Game Board */
     .board-one {
-        top: 21%;
+        top: 20%;
     }
     /* Player Barrels */
     .playerIndicator img {

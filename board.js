@@ -1,4 +1,4 @@
-var tictactoeBoard = function(gameContainer){
+var tictactoeBoard = function(gameContainer, winModal){
 
     var self = this;
     var xTurn = false;
@@ -98,7 +98,7 @@ var tictactoeBoard = function(gameContainer){
      * @returns {string}
      */
     self.win = function(player){
-        var $modal = $(".modal-body");
+        var $modal = $(winModal).find(".modal-body");
         var count = 0;
 
         var gameLevel = self.gameSquares.length;
@@ -111,7 +111,7 @@ var tictactoeBoard = function(gameContainer){
             }
             if(count===gameLevel){
                 $modal.text("Congratulations! " + player + "'s Win.");
-                $('#winner').modal('show');
+                $(winModal).modal('show');
                 self.resetBoardArray(gameLevel);
                 return 'win';
             }else{
@@ -128,7 +128,7 @@ var tictactoeBoard = function(gameContainer){
             }
             if(count===gameLevel){
                 $modal.text("Congratulations! " + player + "'s Win.");
-                $('#winner').modal('show');
+                $(winModal).modal('show');
                 self.resetBoardArray(gameLevel);
                 return 'win';
             }else{
@@ -149,7 +149,7 @@ var tictactoeBoard = function(gameContainer){
         }
         if(count===gameLevel){
             $modal.text("Congratulations! " + player + "'s Win.");
-            $('#winner').modal('show');
+            $(winModal).modal('show');
             self.resetBoardArray(gameLevel);
             return 'win';
         }else{
@@ -166,7 +166,7 @@ var tictactoeBoard = function(gameContainer){
         }
         if(count===gameLevel){
             $modal.text("Congratulations! " + player + "'s Win.");
-            $('#winner').modal('show');
+            $(winModal).modal('show');
             self.resetBoardArray(gameLevel);
             return 'win';
         }else{
@@ -181,10 +181,9 @@ var tictactoeBoard = function(gameContainer){
                     catsCounter += 1;
                 }
                 if( catsCounter === (gameLevel*gameLevel) ){
-                    console.log('cats');
                     $('.target').find('img').attr('src', 'images/cat.png');
                     $modal.text("Cats Game :P  Meow Meow");
-                    $('#winner').modal('show');
+                    $(winModal).modal('show');
                 }
             }
         }
