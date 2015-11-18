@@ -135,13 +135,13 @@ body {
 .two {
     position: absolute;
     border: 7px solid red;
-    height: 40%;
-    width: 40%;
+    height: 50px;
+    width: 50px;
     border-radius: 50%;
     transition: 2s;
     -webkit-transform: scale(0) rotateY(0deg);
-    top: 44%;
-    left: 28%;
+    left: 50%;
+    transform: translate(-50%, 50%) !important;
 }
 
 .expandCircle {
@@ -168,7 +168,7 @@ body {
 #perspective {
     height: 30%;
     width: 33%;
-    -webkit-perspective: 900;
+    -webkit-perspective: 900px;
     position: absolute;
     top: 80%;
     left: 31%;
@@ -188,6 +188,9 @@ button{
     position: absolute;
     width: 100%;
     bottom: 10%;
+}
+.visible-xs button:hover{
+    color: #fc0302
 }
 
 /*add this class for resetting the cards, setTimeout function to remove class*/
@@ -210,24 +213,13 @@ button{
 @media only screen and (min-width : 768px){
 
     /* Game Board */
-    /*had to separate the tops to visually work between gameboard sizes.*/
     .board-one {
-        top: 46.5%;
+        top: 24%;
     }
-    /*had to separate the tops to visually work between gameboard sizes.*/
-    .board-two {
-        top: 47%;
+    .row{
+        margin-top: 0;
+        margin-bottom: 0;
     }
-    /*centering game boards.*/
-    .board-one, .board-two {
-        position: absolute;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        transition: 1s;
-        cursor: crosshair;
-    }
-
 
     /* Player Barrels*/
     .playerIndicator>img{
@@ -244,52 +236,92 @@ button{
     #game_sign{
         position: absolute;
         bottom: -6%;
-        width: 26%;
+        width: 275px;
     }
     .sign {
         width: 250px;
     }
     button{
         margin: 0;
-        background-color: #C47335;
-        border: 2px solid #D9A452;
-        font-size: 150%;
+        background-color: transparent;
+        border: none;
+        font-size: 200%;
+        text-decoration: underline;
+        color: black;
+    }
+    #game_sign button:hover{
+        color: #fc0302
     }
     .switch {
         position: absolute;
         top: 29%;
-        left: 18%;
-        transform: rotateY(45deg);
-        font-weight: normal;
-
+        left: 20%;
+        transform: rotateY(30deg);
     }
     .reset{
         font-size: 70%;
-        background-color: #C47335;
-        border: 2px solid #D9A452;
+        background-color: transparent;
         font-weight: bold;
     }
     #game_sign>.reset {
         position: absolute;
         top: 23%;
-        left: 45%;
-        transform: rotateY(45deg);
-        font-size: 150%;
-        font-weight: normal;
+        left: 50%;
+        transform: rotateY(30deg);
+        font-size: 200%;
+        border: none;
     }
 }
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px){
 
+    .board-one {
+        top: 23%;
+    }
+    .board-two .target {
+        margin: 0 4%;
+    }
+
     /* Player Barrels*/
     .playerIndicator>img{
         width: 300px;
     }
 
+    .sign{
+        width: 280px;
+    }
+
+    .switch {
+        left: 25%;
+        font-size: 220%;
+
+    }
+    #game_sign>.reset {
+        left: 55%;
+        font-size: 220%;
+    }
+
+    /* Gun Image */
+    #pointer-wrap img {
+        width: 80%;
+    }
 }
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px){
 
+    .board-one {
+        top: 21%;
+    }
+
+    .playerIndicator>img {
+        width: 340px;
+    }
+
+    /* Gun Image */
+    #pointer-wrap img {
+        width: 60%;
+        top: -11%;
+    }
 }
