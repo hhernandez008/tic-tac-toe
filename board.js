@@ -15,6 +15,7 @@ var tictactoeBoard = function(gameContainer){
         var squareIndex = $(element).attr("squareIndex");
         if (self.gameSquares[rowIndex][squareIndex] == '') {
             self.whoseTurn(element);
+            return true;
         }
     };
 
@@ -28,6 +29,7 @@ var tictactoeBoard = function(gameContainer){
 
         var $first = $(element).find('.div1');
         var $second = $(element).find('.div2');
+
 
         if (xTurn) {
             $('audio').attr('autoplay', 'autoplay').trigger('load');

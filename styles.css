@@ -66,14 +66,15 @@ body {
 /* Player Barrels*/
 /* positioned absolute to avoid any troubles switching board size. */
 .left{
-    float: left;
+
     position: absolute;
 }
 
 .right {
-    float: right;
+    position: absolute;
+    right: 0;
 }
-.playerIndicator>img{
+.playerIndicator img{
     width: 180px;
 }
 
@@ -190,13 +191,14 @@ button{
     bottom: 10%;
 }
 .visible-xs button:hover{
-    color: #fc0302
+    color: #fc0302;
 }
 
 /*add this class for resetting the cards, setTimeout function to remove class*/
 .reset-row {
-    transform: rotateX(90deg);
+    transform: rotateX(92deg);
     transform-origin: 50% 100%;
+    backface-visibility: hidden;
 }
 
 /* Winner Modal */
@@ -222,15 +224,10 @@ button{
     }
 
     /* Player Barrels*/
-    .playerIndicator>img{
+    .playerIndicator img{
         width: 250px;
     }
 
-    /*add this class for resetting the cards, setTimeout function to remove class*/
-    .reset-row {
-        transform: rotateX(90deg);
-        transform-origin: 50% 100%;
-    }
 
     /* Game Selector & Reset Sign */
     #game_sign{
@@ -275,7 +272,7 @@ button{
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px){
-
+    /* Game Board */
     .board-one {
         top: 23%;
     }
@@ -284,14 +281,14 @@ button{
     }
 
     /* Player Barrels*/
-    .playerIndicator>img{
+    .playerIndicator img{
         width: 300px;
     }
 
+    /* Game Level & Reset */
     .sign{
         width: 280px;
     }
-
     .switch {
         left: 25%;
         font-size: 220%;
@@ -310,12 +307,13 @@ button{
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px){
-
+    /* Game Board */
     .board-one {
         top: 21%;
     }
 
-    .playerIndicator>img {
+    /* Player Barrels */
+    .playerIndicator img {
         width: 340px;
     }
 

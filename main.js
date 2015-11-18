@@ -19,7 +19,11 @@ $(document).ready(function () {
 
     //click handler for ducks/tic-tac-toe squares
     $(".center").on("click", ".target", function () {
-        game.canIClick(this);
+        var player = game.canIClick(this); //if the player can click the square return true
+        if(player) {
+            $(".playerOne").toggle();
+            $(".playerTwo").toggle();
+        }
     });
 
 
