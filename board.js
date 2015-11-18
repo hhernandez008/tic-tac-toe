@@ -75,22 +75,11 @@ var tictactoeBoard = function(gameContainer){
             $(gameContainer).append(mainChild_row);
         }
 
-        /*targets all elements just created with class target and adds class col-xs-2 if gameSquares.length is equal
-        to 3, appends images/goose-100.png to target. otherwise appends images/goose-60.png to target and adds class
-         col-xs-1*/
-        if (self.gameSquares.length == 3) {
-            var imageEasy = $("<img>", {
+            var image = $("<img>", {
                 src: 'images/goose-100.png'
             });
-            //$(".target").addClass('col-xs-2');
-            $(".target").append(imageEasy);
-        } else {
-            var imageHard = $("<img>", {
-                src: 'images/goose-60.png'
-            });
-            //$(".target").addClass('col-xs-1');
-            $(".target").append(imageHard);
-        }
+            $(".target").append(image);
+
     }; //end setBoard
 
     /**
