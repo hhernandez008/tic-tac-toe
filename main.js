@@ -28,14 +28,14 @@ $(document).ready(function () {
         $( ".switch" ).toggle();
     });
 
-    $("#3x3").click(function() {
+    $(".3x3").click(function() {
         $('.background-three').removeClass('hidden');
         $('.background-five').addClass('hidden');
         game.setBoard(easy);
         currentGameLevel = easy;
     });
 
-    $("#5x5").click(function() {
+    $(".5x5").click(function() {
         $('.background-three').addClass('hidden');
         $('.background-five').removeClass('hidden');
         game.setBoard(hard);

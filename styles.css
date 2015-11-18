@@ -7,51 +7,56 @@ body {
     width: 100vw;
     height: 100vh;
 }
-
+.row {
+    transition: 1s;
+}
+/* 3x3 Board */
 .background-three {
     background: url('images/t3-bg3.jpg') no-repeat;
     background-size: 100% 100%;
 }
+.board-one {
+    position: absolute;
+    top: 24%;
+    width: 100%;
+    height: 50%;
+}
+.board-one>.row {
+    height: 33%;
+    margin: 1% 20%;
+    text-align: center;
+}
+.board-one .target {
+    position: relative;
+    display: inline-block;
+    width: 31%;
+    height: 85%;
+    margin: 1%;
+}
 
+/* 5x5 Board */
 .background-five {
     background: url('images/t3-bg5.png') no-repeat;
     background-size: 100% 100%;
 }
-
-/* Game Board */
-/*had to separate the tops to visually work between gameboard sizes.*/
-.board-one {
-    top: 46.5%;
-}
-/*had to separate the tops to visually work between gameboard sizes.*/
 .board-two {
-    top: 47%;
-}
-/*centering game boards.*/
-.board-one, .board-two {
     position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 23%;
+    width: 100%;
+    height: 51%;
+}
+.board-two>.row {
+    height: 20%;
+    margin: 0 10%;
     text-align: center;
-    transition: 1s;
-    cursor: crosshair;
+}
+.board-two .target {
+    position: relative;
+    display: inline-block;
+    height: 95%;
+    margin: 0 1.5%;
 }
 
-.row {
-    transition: 1s;
-}
-
-.col-xs-2 {
-    width: 15vw;
-    height: 15vh;
-    margin-top: 1.6em;
-}
-
-.col-xs-1 {
-    width: 10vw;
-    height: 9.5vh;
-    margin-top: 0.65em;
-}
 
 /*Using this class to hide elements. */
 .hidden {
@@ -129,14 +134,14 @@ body {
 
 .two {
     position: absolute;
-    border: 8px solid red;
+    border: 7px solid red;
     height: 40%;
-    width: 30%;
+    width: 40%;
     border-radius: 50%;
     transition: 2s;
     -webkit-transform: scale(0) rotateY(0deg);
     top: 44%;
-    left: 35%;
+    left: 28%;
 }
 
 .expandCircle {
@@ -157,7 +162,7 @@ body {
     width: 100%;
     height: 165%;
     position: absolute;
-    top: -27%;
+    top: -6%;
 }
 /*container for gun image*/
 #perspective {
@@ -165,7 +170,7 @@ body {
     width: 33%;
     -webkit-perspective: 900;
     position: absolute;
-    top: 76%;
+    top: 80%;
     left: 31%;
 }
 
@@ -184,13 +189,6 @@ button{
     width: 100%;
     bottom: 10%;
 }
-/*.visible-xs .switch{*/
-    /*position: absolute;*/
-    /*left: 7%;*/
-/*}*/
-/*.visible-xs .reset{*/
-    /*float: right;*/
-/*}*/
 
 /*add this class for resetting the cards, setTimeout function to remove class*/
 .reset-row {
@@ -211,32 +209,64 @@ button{
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px){
 
+    /* Game Board */
+    /*had to separate the tops to visually work between gameboard sizes.*/
+    .board-one {
+        top: 46.5%;
+    }
+    /*had to separate the tops to visually work between gameboard sizes.*/
+    .board-two {
+        top: 47%;
+    }
+    /*centering game boards.*/
+    .board-one, .board-two {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        transition: 1s;
+        cursor: crosshair;
+    }
+
+
+    /* Player Barrels*/
+    .playerIndicator>img{
+        width: 250px;
+    }
+
+    /*add this class for resetting the cards, setTimeout function to remove class*/
+    .reset-row {
+        transform: rotateX(90deg);
+        transform-origin: 50% 100%;
+    }
+
     /* Game Selector & Reset Sign */
     #game_sign{
         position: absolute;
-        bottom: -8%;
+        bottom: -6%;
         width: 26%;
     }
     .sign {
-        width: 80%;
-        height: 100%;
+        width: 250px;
     }
     button{
         margin: 0;
+        background-color: #C47335;
+        border: 2px solid #D9A452;
+        font-size: 150%;
     }
     .switch {
         position: absolute;
         top: 29%;
         left: 18%;
         transform: rotateY(45deg);
-        background-color: #C47335;
-        font-size: 150%;
-        border: 2px solid #D9A452;
+        font-weight: normal;
+
     }
     .reset{
+        font-size: 70%;
         background-color: #C47335;
         border: 2px solid #D9A452;
-        font-size: 70%;
         font-weight: bold;
     }
     #game_sign>.reset {
@@ -252,7 +282,10 @@ button{
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px){
 
-
+    /* Player Barrels*/
+    .playerIndicator>img{
+        width: 300px;
+    }
 
 }
 

@@ -80,13 +80,13 @@ var tictactoeBoard = function(gameContainer){
             var imageEasy = $("<img>", {
                 src: 'images/goose-100.png'
             });
-            $(".target").addClass('col-xs-2');
+            //$(".target").addClass('col-xs-2');
             $(".target").append(imageEasy);
         } else {
             var imageHard = $("<img>", {
                 src: 'images/goose-60.png'
             });
-            $(".target").addClass('col-xs-1');
+            //$(".target").addClass('col-xs-1');
             $(".target").append(imageHard);
         }
     }; //end setBoard
